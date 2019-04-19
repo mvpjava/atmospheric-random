@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class RandomResponse {
 	private final String jsonrpc;
 	private final RadomResult result;
+	private RpcError error;
 	private final int id;
 
 	@JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
@@ -49,7 +50,22 @@ public final class RandomResponse {
 
 	@JsonIgnore
 	public int[] getRandomData() {
-		return this.getResult().getRandom().getData();
+		RadomResult result = getResult();
+		if (result == null) {
+			System.out.printf("!!!! An error occurred %s ... returning an empty value !!!!\n", getError().getDataAsString());
+			int[] emptyArray = new int[]{};
+			return emptyArray;
+		}
+		RandomData randomData = result.getRandom();
+		return randomData.getData();
+	}
+
+	public RpcError getError() {
+		return error;
+	}
+
+	public void setError(RpcError error) {
+		this.error = error;
 	}
 
 
