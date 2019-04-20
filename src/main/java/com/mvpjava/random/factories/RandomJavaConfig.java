@@ -7,6 +7,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import com.mvpjava.random.Application;
 import com.mvpjava.random.AtmosphericRandom;
@@ -35,7 +36,8 @@ public class RandomJavaConfig {
 	private CloseableHttpClient closeableHttpClient() {
 		// Spring will automatically Invoke destroy method 'close' since it
 		// knows bean implements Closeable Interface. No need for boiler plate destroyMethod="close"
-		return HttpClients.createDefault();
+		return HttpClients.createMinimal();
+
 	}
 
 	private HttpPostFactory httpPostFactory() {
@@ -43,7 +45,8 @@ public class RandomJavaConfig {
 	}
 	
 	private RandomMapper randomMapper() {
-		return new RandomMapper();
+		boolean isJsonStringDisplayed = true;
+		return new RandomMapper(isJsonStringDisplayed);
 	}
 
 }

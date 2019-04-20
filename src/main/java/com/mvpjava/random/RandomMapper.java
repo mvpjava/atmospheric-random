@@ -13,9 +13,11 @@ import com.mvpjava.random.json.response.RandomResponse;
 
 public class RandomMapper extends ObjectMapper {
 	private static final long serialVersionUID = 1L;
+	private final boolean isJsonStringDisplayed;
 
-	public RandomMapper () {
+	public RandomMapper (boolean isJsonStringDisplayed) {
 		super();
+		this.isJsonStringDisplayed = isJsonStringDisplayed;
 	}
 	
 	public RandomResponse mapHttpResponseToRandomResponse(CloseableHttpResponse httpResponse) {
@@ -52,7 +54,9 @@ public class RandomMapper extends ObjectMapper {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-		System.out.println(objAsString);
+		if (isJsonStringDisplayed == true){
+			System.out.println(objAsString);
+		}
 		return objAsString;
 	}
 

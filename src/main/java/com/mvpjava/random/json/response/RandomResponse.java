@@ -64,9 +64,8 @@ public final class RandomResponse {
 		return error;
 	}
 
-	public void setError(RpcError error) {
-		this.error = error;
-	}
-
+	/*
+	 * public void setError(RpcError error) { this.error = error; }
+	 */
 
 }

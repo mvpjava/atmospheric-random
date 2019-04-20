@@ -15,6 +15,8 @@ public class Main implements CommandLineRunner	 {
 	}
 
 	public void run(String... args) throws Exception {
+		System.out.println("===========START APP ============");	 
         application.startApplication();
+        System.out.println("========== END OF APP ==========");	 
 	}
 }
