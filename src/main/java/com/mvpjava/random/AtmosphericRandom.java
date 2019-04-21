@@ -36,7 +36,13 @@ public class AtmosphericRandom {
 		return randomNumbers;
 	}
 	
-	public int[] nextInt(int numberOfIntegers, int min, int max, boolean replacement, int base) {
+	public int[] nextInt(int numberOfIntegers, int min, int max, boolean replacement) {
+		int[] randomNumbers = nextInt(numberOfIntegers, min, max, replacement, DEFAULT_BASE);		
+		return randomNumbers;
+	}
+
+	//Only base 10 supported for demo
+	private  int[] nextInt(int numberOfIntegers, int min, int max, boolean replacement, int base) {
 		HttpPost httpPostRequest = httpPostFactory.newHttpPostRequest(numberOfIntegers, min, max, replacement, base);		
 		RandomResponse randomResponse = executeHttpRequest(httpPostRequest);
 		int[] randomInts = randomResponse.getRandomData();
@@ -44,7 +50,7 @@ public class AtmosphericRandom {
 	}
 	
 	private RandomResponse executeHttpRequest(HttpPost httpPost) {
-
+		
 		CloseableHttpResponse response = null;
 		try {
 			response = httpClient.execute(httpPost);

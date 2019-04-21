@@ -18,13 +18,13 @@ public class Application {
 		  System.out.println("");
 	  
 		  System.out.println("==========================================");
-		  int[] randomInts = atmosphericRandom.nextInt(2, 1, 200);
+		  int[] randomInts = atmosphericRandom.nextInt(5, 1, 2000);
 		  System.out.println("Random Atmospheric Integers = " + Arrays.toString(randomInts)); 
 		  System.out.println("==========================================");	 
 		  System.out.println("");
 
 		  System.out.println("==========================================");
-		  int[] randomIntsBin = atmosphericRandom.nextInt(3, 1, 1000, false, 2);
+		  int[] randomIntsBin = atmosphericRandom.nextInt(3, 1, 1000, false);
 		  System.out.println("Random Atmospheric Integers = " +  Arrays.toString(randomIntsBin));
 		  System.out.println("==========================================");
 		  
