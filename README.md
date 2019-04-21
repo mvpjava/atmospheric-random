@@ -6,7 +6,6 @@ This demo supports the Blog Post "Generating a Random Number in Java From Atmosp
 You will have to get your own API key from random.org (free) and include it in the application.properties file as the 'apiKey'
 If you do not, you will be using an expired key and you'll get the following error message ...
 
-==========================================
 {
   "jsonrpc" : "2.0;",
   "method" : "generateIntegers",
